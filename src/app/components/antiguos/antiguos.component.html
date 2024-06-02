@@ -1,0 +1,18 @@
+<h1 class="display-4 animate__animated animate__headShake">Vehiculos <small>Antiguos</small></h1>
+<hr>
+
+<div class="row">
+    <div class="col" *ngFor="let vehiculo of vehiculos; let i = index">
+      <div class="card" *ngIf = "vehiculo.anio < '2019'"style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Placa: {{vehiculo.placa}}</h5>
+          <p class="card-text">Marca: {{vehiculo.marca}}</p>
+          <p class="card-text">Mantenimieto: {{vehiculo.matenimiento}}</p>
+          <p class="card-text">Año: {{vehiculo.anio}}</p>
+          <p class="card-text">Color: {{vehiculo.color}}</p>
+          <p class="card-body"><small class="text-body-secundary"> </small></p>
+          
+        </div>
+      </div>
+    </div>
+</div>

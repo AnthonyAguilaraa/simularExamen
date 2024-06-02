@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+  
+        <a class="navbar-brand" href="#">
+            
+          </a>
+     <a class="navbar-brand" >Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> 
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  
+          <li class="nav-item">
+            <a class="nav-link"  routerLinkActive="active" [routerLink]="['home']"></a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link"  routerLinkActive="active" [routerLink]="['todos']">Todos</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active"  [routerLink]="['ultimos5anos']">ultimos 5 años</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active"  [routerLink]="['antiguos']">Antiguos</a>
+          </li>
+  
+          
+        </ul>
+        <form class="d-flex" (ngSubmit)="BuscarVehiculoMarca(terminodebusqueda)">
+          <input class="form-control me-2" type="search" name="terminodebusqueda" [(ngModel)]="terminodebusqueda" placeholder="Search" aria-label="Search">
+          <button type="submit" class="btn btn-primary">Buscar Por Marca</button>
+        </form>
+        <form class="d-flex" (ngSubmit)="BuscarVehiculoMantenimiento(terminodebusqueda)">
+          <button type="submit" class="btn btn-primary">Buscar Por Mantenimiento</button>
+        </form>
+
+        <h4>BIENVENIDO</h4>
+        <ul *ngIf="auth.logIn">
+          <li>{{ user?.email }}</li>
+          <li>{{ user?.nombre }} {{ user?.apellido }}</li>
+          <li>{{ user?.telefono }}</li>
+        </ul>
+        
+        <button *ngIf="!auth.logIn" type="button" class="btn btn-outline-primary ms-2" (click)="abrirformulario()">Ingresar</button>
+
+        <button *ngIf="auth.logIn" (click)="logout()" class="btn btn-outline-danger ms-2">Salir</button>
+      </div>
+    </div>
+  </nav>
